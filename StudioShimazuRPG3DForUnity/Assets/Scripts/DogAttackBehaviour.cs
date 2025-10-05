@@ -9,8 +9,8 @@ public class DogAttackBehaviour : StateMachineBehaviour
     //日本語訳(AI) : 状態遷移が開始され、ステートマシンがこの状態を評価し始めるときに呼び出されます
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("On State Enter");
-        _startPosition = animator.transform.position;
+        // Debug.Log("On State Enter");
+        // _startPosition = animator.transform.position;
 
         //メモ: コンポーネントを取得したいときは以下が実現例の一つ
         //DogManager dogManager = animator.GetComponent<DogManager>();
@@ -20,16 +20,16 @@ public class DogAttackBehaviour : StateMachineBehaviour
     //日本語訳(AI) : OnStateEnter と OnStateExit コールバックの間の各 Update フレームで呼び出されます
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("On State Update");
-        animator.transform.position += new Vector3(0, 0.01f, 0);
+        // Debug.Log("On State Update");
+        // animator.transform.position += new Vector3(0, 0.01f, 0);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //日本語訳(AI) : 遷移が終了し、ステートマシンがこの状態の評価を終了するときに呼び出されます
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("On State Exit");
-        animator.transform.position = _startPosition;
+        // Debug.Log("On State Exit");
+        // animator.transform.position = _startPosition;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

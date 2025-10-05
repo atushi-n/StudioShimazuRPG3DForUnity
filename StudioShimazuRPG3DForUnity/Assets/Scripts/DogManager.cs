@@ -30,4 +30,9 @@ public class DogManager : MonoBehaviour
             _animator.SetFloat("MoveSpeed", 0.0f);
         }
     }
+
+    public void AttackLog()
+    {
+        Debug.Log("AttackLog");
+    }
 }

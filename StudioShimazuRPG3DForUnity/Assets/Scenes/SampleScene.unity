@@ -2424,6 +2424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2066896391695830829}
   - component: {fileID: 2066896391686840561}
+  - component: {fileID: 2066896391696192334}
   m_Layer: 0
   m_Name: DogPolyart
   m_TagString: Untagged
@@ -2431,6 +2432,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2066896391696192334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066896391696192333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c61fcd8ca6861440ae9ac659b5da2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2066896391696192335
 GameObject:
   m_ObjectHideFlags: 0
