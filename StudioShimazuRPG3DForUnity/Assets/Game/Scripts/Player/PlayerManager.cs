@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public static float DEFAULT_MOVE_SPEED = 5f;
+
     private Rigidbody _rigidbody;
     private Animator _animator;
 
     private float _horizontal;
     private float _vertical;
-    private float _moveSpeed = 5f;
+    public float MoveSpeed { get; set; } = DEFAULT_MOVE_SPEED;
 
     private void Start()
     {
@@ -39,7 +41,7 @@ public class PlayerManager : MonoBehaviour
         transform.LookAt(direction);
 
         //移動
-        _rigidbody.linearVelocity = new Vector3(_horizontal, 0, _vertical) * _moveSpeed;
+        _rigidbody.linearVelocity = new Vector3(_horizontal, 0, _vertical) * MoveSpeed;
         _animator.SetFloat("MoveSpeed", _rigidbody.linearVelocity.magnitude);
     }
 }
