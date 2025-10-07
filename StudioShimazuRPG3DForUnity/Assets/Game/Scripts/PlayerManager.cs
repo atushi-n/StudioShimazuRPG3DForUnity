@@ -18,8 +18,17 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         // キーボード入力を受け取る
+
+        //移動入力
         _horizontal = Input.GetAxis("Horizontal");
         _vertical = Input.GetAxis("Vertical");
+
+        //攻撃入力
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _animator.SetTrigger("Attack");
+        }
+
 
     }
 
