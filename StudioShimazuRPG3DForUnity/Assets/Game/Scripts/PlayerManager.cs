@@ -25,6 +25,11 @@ public class PlayerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //向きの変更
+        Vector3 direction = transform.position + new Vector3(_horizontal, 0, _vertical);
+        transform.LookAt(direction);
+
+        //移動
         _rigidbody.linearVelocity = new Vector3(_horizontal, 0, _vertical) * _moveSpeed;
         _animator.SetFloat("MoveSpeed", _rigidbody.linearVelocity.magnitude);
     }
