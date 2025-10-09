@@ -4,19 +4,20 @@ using UnityEngine.AI;
 
 /*
 Enemyのアニメーション: Playerとの距離に応じてアニメーションを切り替える
-- Idle: 遠い
-- Run: やや近い
-- Attack: 近い
+- Idle: 遠い: 7以上 : speedを0
+- Run: やや近い: 7以下 : speedを2
+- Attack: 近い : 2以下 : speedを0
 */
-
 
 public class EnemyManager : MonoBehaviour
 {
     public Transform _target;
+    private Animator _animator;
     private NavMeshAgent _navMeshAgent;
 
     private void Start()
     {
+        _animator = GetComponent<Animator>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _navMeshAgent.destination = _target.position;
     }
@@ -24,5 +25,6 @@ public class EnemyManager : MonoBehaviour
     private void Update()
     {
         _navMeshAgent.destination = _target.position;
+        _animator.SetFloat("Distance", _navMeshAgent.remainingDistance);
     }
 }
