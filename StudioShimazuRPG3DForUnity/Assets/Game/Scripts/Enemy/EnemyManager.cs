@@ -27,4 +27,15 @@ public class EnemyManager : MonoBehaviour
         _navMeshAgent.destination = _target.position;
         _animator.SetFloat("Distance", _navMeshAgent.remainingDistance);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //ダメージを与えるものにぶつかったら
+        var damager = other.GetComponent<Damager>();
+
+        if (damager != null)
+        {
+            Debug.Log("敵はダメージを受けた");
+        }
+    }
 }

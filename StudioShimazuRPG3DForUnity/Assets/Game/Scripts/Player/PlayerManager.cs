@@ -44,4 +44,15 @@ public class PlayerManager : MonoBehaviour
         _rigidbody.linearVelocity = new Vector3(_horizontal, 0, _vertical) * MoveSpeed;
         _animator.SetFloat("MoveSpeed", _rigidbody.linearVelocity.magnitude);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        //ダメージを与えるものにぶつかったら
+        var damager = other.GetComponent<Damager>();
+
+        if (damager != null)
+        {
+            Debug.Log("Playerはダメージを受けた");
+            _animator.SetTrigger("Hurt");
+        }
+    }
 }
