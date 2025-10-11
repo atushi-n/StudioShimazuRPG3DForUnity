@@ -36,6 +36,7 @@ public class EnemyManager : MonoBehaviour
         if (damager != null)
         {
             Debug.Log("敵はダメージを受けた");
+            _animator.SetTrigger("Hurt");
         }
     }
 }
