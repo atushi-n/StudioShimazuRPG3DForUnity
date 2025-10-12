@@ -18,9 +18,11 @@ public class EnemyManager : MonoBehaviour
 
     public static int maxHp = 100;
     int hp = maxHp;
+    bool isDie;
 
     private void Start()
     {
+        isDie = false;
         hp = maxHp;
         _animator = GetComponent<Animator>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -30,6 +32,9 @@ public class EnemyManager : MonoBehaviour
 
     private void Update()
     {
+        if (isDie)
+            return;
+
         _navMeshAgent.destination = _target.position;
         _animator.SetFloat("Distance", _navMeshAgent.remainingDistance);
     }
@@ -70,6 +75,9 @@ public class EnemyManager : MonoBehaviour
         if (hp <= 0)
         {
             hp = 0;
+            _animator.SetTrigger("Die");
+            isDie = true;
+            Destroy(gameObject, 2f);
         }
         enemyUIManager.UpdateHP(hp);
         Debug.Log("Enemyの残りHP:" + hp);
