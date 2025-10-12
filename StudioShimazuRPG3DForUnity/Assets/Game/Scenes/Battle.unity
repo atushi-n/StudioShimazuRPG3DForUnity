@@ -645,7 +645,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1211480022711586277}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0.859571, z: 0}
 --- !u!4 &1211480020854360892
 Transform:
   m_ObjectHideFlags: 0
@@ -710,7 +710,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1211480021933641109}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35.278378, y: 108.79551, z: 171.65533}
 --- !u!65 &1211480020928831915
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -807,7 +807,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1211480020937634894}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.8597591, z: 0}
 --- !u!4 &1211480021125424516
 Transform:
   m_ObjectHideFlags: 0
@@ -1024,6 +1024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 2066896391438764624}
+  WeaponCollider: {fileID: 1211480020928831915}
 --- !u!136 &1211480021514998390
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1431,7 +1432,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1211480022829118849}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.69035, y: 53.11243, z: -53.409054}
 --- !u!1 &1211480022421444285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,7 +1579,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1211480022444723135}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -35.83498, y: 94.5854, z: 29.518284}
 --- !u!1 &1211480022803485572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,7 +1610,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1211480022444723135}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35.62425, y: -104.03068, z: 18.054722}
 --- !u!1 &1211480022829118848
 GameObject:
   m_ObjectHideFlags: 0
