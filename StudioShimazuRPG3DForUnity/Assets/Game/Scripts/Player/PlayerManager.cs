@@ -15,9 +15,11 @@ public class PlayerManager : MonoBehaviour
 
     public static int maxHp = 100;
     int hp = maxHp;
+    bool isDie;
 
     private void Start()
     {
+        isDie = false;
         hp = maxHp;
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
@@ -26,6 +28,9 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
+        if (isDie)
+            return;
+
         // キーボード入力を受け取る
 
         //移動入力
@@ -57,6 +62,9 @@ public class PlayerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isDie)
+            return;
+
         //向きの変更
         Vector3 direction = transform.position + new Vector3(_horizontal, 0, _vertical);
         transform.LookAt(direction);
@@ -73,6 +81,8 @@ public class PlayerManager : MonoBehaviour
         if (hp <= 0)
         {
             hp = 0;
+            _animator.SetTrigger("Die");
+            isDie = true;
         }
         playerUIManager.UpdateHP(hp);
         Debug.Log("Playerの残りHP:" + hp);
@@ -80,6 +90,9 @@ public class PlayerManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (isDie)
+            return;
+
         //ダメージを与えるものにぶつかったら
         var damager = other.GetComponent<Damager>();
 
