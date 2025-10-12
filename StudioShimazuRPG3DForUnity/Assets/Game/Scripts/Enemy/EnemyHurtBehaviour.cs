@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAttackBehaviour : StateMachineBehaviour
+public class EnemyHurtBehaviour : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.ResetTrigger("Hurt");
         animator.GetComponent<NavMeshAgent>().speed = 0;
     }
 
