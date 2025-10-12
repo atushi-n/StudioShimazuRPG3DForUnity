@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour
     public Collider WeaponCollider;
     public PlayerUIManager playerUIManager;
 
-    private static int maxHp = 100;
+    public static int maxHp = 100;
     int hp = maxHp;
 
     private void Start()

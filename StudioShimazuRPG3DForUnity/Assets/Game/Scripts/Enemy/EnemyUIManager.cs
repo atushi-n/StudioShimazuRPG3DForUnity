@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerUIManager : MonoBehaviour
+public class EnemyUIManager : MonoBehaviour
 {
     public Slider HpSlider;
 
@@ -12,7 +12,7 @@ public class PlayerUIManager : MonoBehaviour
 
     public void Init()
     {
-        HpSlider.maxValue = PlayerManager.maxHp;
+        HpSlider.maxValue = EnemyManager.maxHp;
     }
 
     public void UpdateHP(int hp)

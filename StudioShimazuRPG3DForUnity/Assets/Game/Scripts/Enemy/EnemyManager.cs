@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
-
 
 /*
 Enemyのアニメーション: Playerとの距離に応じてアニメーションを切り替える
@@ -16,8 +14,9 @@ public class EnemyManager : MonoBehaviour
     private Animator _animator;
     private NavMeshAgent _navMeshAgent;
     public Collider WeaponCollider;
+    public EnemyUIManager enemyUIManager;
 
-    private static int maxHp = 100;
+    public static int maxHp = 100;
     int hp = maxHp;
 
     private void Start()
@@ -72,6 +71,7 @@ public class EnemyManager : MonoBehaviour
         {
             hp = 0;
         }
+        enemyUIManager.UpdateHP(hp);
         Debug.Log("Enemyの残りHP:" + hp);
     }
 }
