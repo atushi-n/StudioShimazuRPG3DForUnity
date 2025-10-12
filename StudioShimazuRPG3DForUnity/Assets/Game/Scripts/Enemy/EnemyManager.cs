@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,8 +17,12 @@ public class EnemyManager : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     public Collider WeaponCollider;
 
+    private static int maxHp = 100;
+    int hp = maxHp;
+
     private void Start()
     {
+        hp = maxHp;
         _animator = GetComponent<Animator>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _navMeshAgent.destination = _target.position;
@@ -55,6 +60,18 @@ public class EnemyManager : MonoBehaviour
         {
             Debug.Log("敵はダメージを受けた");
             _animator.SetTrigger("Hurt");
+            Damage(damager.damage);
         }
+    }
+
+    private void Damage(int damage)
+    {
+        hp -= damage;
+
+        if (hp <= 0)
+        {
+            hp = 0;
+        }
+        Debug.Log("Enemyの残りHP:" + hp);
     }
 }

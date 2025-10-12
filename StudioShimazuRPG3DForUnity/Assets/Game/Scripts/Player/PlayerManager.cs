@@ -11,9 +11,14 @@ public class PlayerManager : MonoBehaviour
     private float _vertical;
     public float MoveSpeed { get; set; } = DEFAULT_MOVE_SPEED;
     public Collider WeaponCollider;
+    public PlayerUIManager playerUIManager;
+
+    private static int maxHp = 100;
+    int hp = maxHp;
 
     private void Start()
     {
+        hp = maxHp;
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         WeaponCollider.enabled = false;
@@ -60,6 +65,19 @@ public class PlayerManager : MonoBehaviour
         _rigidbody.linearVelocity = new Vector3(_horizontal, 0, _vertical) * MoveSpeed;
         _animator.SetFloat("MoveSpeed", _rigidbody.linearVelocity.magnitude);
     }
+
+    void Damage(int damage)
+    {
+        hp -= damage;
+
+        if (hp <= 0)
+        {
+            hp = 0;
+        }
+        playerUIManager.UpdateHP(hp);
+        Debug.Log("Playerの残りHP:" + hp);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         //ダメージを与えるものにぶつかったら
@@ -69,6 +87,7 @@ public class PlayerManager : MonoBehaviour
         {
             Debug.Log("Playerはダメージを受けた");
             _animator.SetTrigger("Hurt");
+            Damage(damager.damage);
         }
     }
 }
