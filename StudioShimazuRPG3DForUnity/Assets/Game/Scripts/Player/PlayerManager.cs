@@ -10,11 +10,13 @@ public class PlayerManager : MonoBehaviour
     private float _horizontal;
     private float _vertical;
     public float MoveSpeed { get; set; } = DEFAULT_MOVE_SPEED;
+    public Collider WeaponCollider;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
+        WeaponCollider.enabled = false;
     }
 
     private void Update()
@@ -30,8 +32,22 @@ public class PlayerManager : MonoBehaviour
         {
             _animator.SetTrigger("Attack");
         }
+    }
 
+    /// <summary>
+    /// 武器の判定を無効にする
+    /// </summary>
+    public void HideColliderWeapon()
+    {
+        WeaponCollider.enabled = false;
+    }
 
+    /// <summary>
+    /// 武器の判定を有効にする
+    /// </summary>
+    public void ShowColliderWeapon()
+    {
+        WeaponCollider.enabled = true;
     }
 
     private void FixedUpdate()
