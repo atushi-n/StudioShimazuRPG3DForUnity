@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +18,7 @@ public class EnemyUIManager : MonoBehaviour
 
     public void UpdateHP(int hp)
     {
-        HpSlider.value = hp;
+        //DOValueの解説: 0.5秒かけてhp値までスライダーを動かす
+        HpSlider.DOValue(hp, 0.5f);
     }
 }
