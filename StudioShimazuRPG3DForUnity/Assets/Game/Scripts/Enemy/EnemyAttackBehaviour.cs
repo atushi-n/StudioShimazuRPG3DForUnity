@@ -19,6 +19,7 @@ public class EnemyAttackBehaviour : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("Hurt");
+        animator.GetComponent<EnemyManager>().LookAtTarget();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

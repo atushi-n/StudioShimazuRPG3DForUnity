@@ -40,6 +40,11 @@ public class EnemyManager : MonoBehaviour
         _animator.SetFloat("Distance", _navMeshAgent.remainingDistance);
     }
 
+    public void LookAtTarget()
+    {
+        transform.LookAt(_target);
+    }
+
     /// <summary>
     /// 武器の判定を無効にする
     /// </summary>
