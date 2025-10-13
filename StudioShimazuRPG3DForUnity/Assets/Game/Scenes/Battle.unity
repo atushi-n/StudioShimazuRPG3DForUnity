@@ -835,7 +835,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &955684664
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1733,7 +1733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2090826990
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2207,6 +2207,7 @@ MonoBehaviour:
   _target: {fileID: 2066896391438764624}
   WeaponCollider: {fileID: 1211480020928831915}
   enemyUIManager: {fileID: 258546360}
+  gameClearText: {fileID: 955684663}
 --- !u!136 &1211480021514998390
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5134,6 +5135,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponCollider: {fileID: 3951229396206255471}
   playerUIManager: {fileID: 1587471550}
+  gameOverText: {fileID: 2090826989}
+  targetEnemy: {fileID: 1211480021514998386}
 --- !u!136 &2066896391445702031
 CapsuleCollider:
   m_ObjectHideFlags: 0

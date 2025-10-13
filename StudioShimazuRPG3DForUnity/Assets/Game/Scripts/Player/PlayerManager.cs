@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     public Collider WeaponCollider;
     public PlayerUIManager playerUIManager;
     public GameObject gameOverText;
+    public Transform targetEnemy;
 
     public static int maxHp = 100;
     int hp = maxHp;
@@ -41,8 +42,18 @@ public class PlayerManager : MonoBehaviour
         //攻撃入力
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            LookAtTarget();
             _animator.SetTrigger("Attack");
         }
+    }
+
+    private void LookAtTarget()
+    {
+        //自分と敵の距離
+        float distance = Vector3.Distance(transform.position, targetEnemy.position);
+        if (distance < 2f)
+            transform.LookAt(targetEnemy);
+
     }
 
     /// <summary>
