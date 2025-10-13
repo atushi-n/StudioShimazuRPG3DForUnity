@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     public float MoveSpeed { get; set; } = DEFAULT_MOVE_SPEED;
     public Collider WeaponCollider;
     public PlayerUIManager playerUIManager;
+    public GameObject gameOverText;
 
     public static int maxHp = 100;
     int hp = maxHp;
@@ -83,6 +84,7 @@ public class PlayerManager : MonoBehaviour
             hp = 0;
             _animator.SetTrigger("Die");
             isDie = true;
+            gameOverText.SetActive(true);
         }
         playerUIManager.UpdateHP(hp);
         Debug.Log("Playerの残りHP:" + hp);

@@ -15,6 +15,7 @@ public class EnemyManager : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     public Collider WeaponCollider;
     public EnemyUIManager enemyUIManager;
+    public GameObject gameClearText;
 
     public static int maxHp = 100;
     int hp = maxHp;
@@ -77,6 +78,7 @@ public class EnemyManager : MonoBehaviour
             hp = 0;
             _animator.SetTrigger("Die");
             isDie = true;
+            gameClearText.SetActive(true);
             Destroy(gameObject, 2f);
         }
         enemyUIManager.UpdateHP(hp);
