@@ -17,7 +17,12 @@ public class PlayerManager : MonoBehaviour
 
     public static int maxHp = 100;
     int hp = maxHp;
+
+    public static int maxStamina = 100;
+    int stamina = maxStamina;
+
     bool isDie;
+    private float _timer;
 
     private void Start()
     {
@@ -33,6 +38,15 @@ public class PlayerManager : MonoBehaviour
         if (isDie)
             return;
 
+        _timer += Time.deltaTime;
+
+        if (_timer >= 0.5f)
+        {
+            _timer = 0f;
+            //0.5秒ごとにスタミナ回復
+            RecoverStamina();
+        }
+
         // キーボード入力を受け取る
 
         //移動入力
@@ -42,6 +56,26 @@ public class PlayerManager : MonoBehaviour
         //攻撃入力
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Attack();
+        }
+    }
+
+    //スタミナ回復
+    private void RecoverStamina()
+    {
+        if (stamina >= maxStamina)
+            return;
+
+        stamina += 2;
+        playerUIManager.UpdateStamina(stamina);
+    }
+
+    private void Attack()
+    {
+        if (stamina >= 30)
+        {
+            stamina -= 30;
+            playerUIManager.UpdateStamina(stamina);
             LookAtTarget();
             _animator.SetTrigger("Attack");
         }
@@ -49,6 +83,9 @@ public class PlayerManager : MonoBehaviour
 
     private void LookAtTarget()
     {
+        if (targetEnemy == null)
+            return;
+
         //自分と敵の距離
         float distance = Vector3.Distance(transform.position, targetEnemy.position);
         if (distance < 2f)
