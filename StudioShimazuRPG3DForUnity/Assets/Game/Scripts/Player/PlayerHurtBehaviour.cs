@@ -8,6 +8,9 @@ public class PlayerHurtBehaviour : StateMachineBehaviour
     {
         animator.ResetTrigger("Hurt");
         animator.GetComponent<PlayerManager>().MoveSpeed = 0f;
+
+        //必ずHideColliderWeaponを呼び、アニメーション中断による武器の当たり判定が残るのを防ぐ
+        animator.GetComponent<PlayerManager>().HideColliderWeapon();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
